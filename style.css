@@ -1,0 +1,249 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@600;700&display=swap');
+
+/* =========================================
+    CSS VARIABLES (THEME ENGINE)
+   ========================================= */
+:root {
+  /* Dark Mode (Default) */
+  --bg-body: #3f4044;
+  --bg-container: #64666a;
+  --text-main: #ffffff;
+  --text-sub: #d7d7d7;
+  --input-bg: #787a7d;
+  --input-border: #d1d3d6;
+  --accent-glow: #7ac5ff;
+  --highlight: #ffcc00;
+  --shadow-out: 4px 4px 15px rgba(0, 0, 0, 0.7);
+  --shadow-in: inset 3px 3px 8px #505050;
+}
+
+[data-theme="light"] {
+  /* Light Mode Overrides */
+  --bg-body: #e0e5ec;
+  --bg-container: #ffffff;
+  --text-main: #333333;
+  --text-sub: #666666;
+  --input-bg: #f0f2f5;
+  --input-border: #ccc;
+  --accent-glow: #007bff; /* Darker blue for contrast */
+  --highlight: #e6ac00;   /* Darker yellow for contrast */
+  --shadow-out: 5px 5px 15px rgba(0,0,0,0.15);
+  --shadow-in: inset 2px 2px 5px #d1d9e6, inset -2px -2px 5px #ffffff;
+}
+
+/* Reset */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+  background: var(--bg-body);
+  color: var(--text-main);
+  text-align: center;
+  padding: 25px 10px 80px;
+  transition: background 0.3s ease, color 0.3s ease;
+  user-select: none;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--bg-container);
+  border: 2px solid var(--input-border);
+  border-radius: 50%;
+  width: 45px;
+  height: 45px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text-main);
+  box-shadow: var(--shadow-out);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.theme-toggle:hover {
+  transform: scale(1.1);
+  border-color: var(--accent-glow);
+}
+
+/* Header */
+h1 {
+  font-weight: 700;
+  font-size: 2.6rem;
+  margin-bottom: 5px;
+  color: var(--accent-glow);
+  text-shadow: 0 0 15px rgba(122, 197, 255, 0.4);
+}
+
+p.subtitle {
+  margin: 0 0 6px;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: var(--text-sub);
+  letter-spacing: 0.1em;
+}
+
+/* Live Date Time Styling */
+p.datetime {
+  margin: 15px 0 40px;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: var(--highlight);
+  font-family: 'Courier New', monospace;
+  letter-spacing: 0.05em;
+  background: var(--bg-container);
+  display: inline-block;
+  padding: 8px 20px;
+  border-radius: 50px;
+  border: 1px solid var(--input-border);
+  box-shadow: var(--shadow-out);
+}
+
+/* Container Styling */
+.container {
+  background: var(--bg-container);
+  max-width: 420px;
+  margin: 0 auto 45px;
+  padding: 30px 35px 40px;
+  border-radius: 17px;
+  box-shadow: var(--shadow-out);
+  font-weight: 600;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.container h2 {
+  position: relative;
+  font-weight: 700;
+  font-size: 1.7rem;
+  margin-bottom: 25px;
+  color: var(--text-main);
+}
+.container h2::after {
+  content: '';
+  position: absolute;
+  left: 40px;
+  right: 40px;
+  bottom: -9px;
+  height: 3px;
+  background: var(--accent-glow);
+  border-radius: 6px;
+}
+
+/* Inputs */
+input[type="text"], textarea {
+  width: 100%;
+  padding: 11px 14px;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: 10px;
+  border: 2px solid var(--input-border);
+  background: var(--input-bg);
+  color: var(--text-main);
+  outline: none;
+  transition: 0.3s;
+  font-family: 'Quicksand', sans-serif;
+}
+input::placeholder, textarea::placeholder { color: #999; }
+input:focus, textarea:focus { border-color: var(--accent-glow); }
+
+/* To-Do List */
+#todoList { list-style: none; padding: 0; margin-top: 20px; }
+#todoList li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--input-bg);
+  padding: 10px 14px;
+  margin-bottom: 8px;
+  border-radius: 10px;
+  color: var(--text-main);
+  border: 1px solid transparent;
+}
+#todoList li button {
+  background: #ff6b6b;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  padding: 5px 10px;
+  font-size: 0.8rem;
+}
+
+/* Buttons */
+button.add-task {
+  margin-top: 20px;
+  padding: 11px 26px;
+  font-size: 1rem;
+  border-radius: 14px;
+  cursor: pointer;
+  border: none;
+  background: var(--highlight);
+  color: #3f2b00;
+  font-weight: 700;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  transition: transform 0.2s;
+}
+button.add-task:hover { transform: translateY(-2px); }
+
+/* Timer Styling */
+.timer-inputs { display: flex; justify-content: center; gap: 10px; margin-bottom: 10px; color: var(--text-sub); }
+.timer-inputs input {
+  width: 60px; text-align: center; font-size: 1.2rem;
+  background: var(--input-bg); border: 2px solid var(--input-border);
+  color: var(--text-main);
+}
+
+.timer-display {
+  font-family: 'Arial Black', sans-serif;
+  font-size: 3.5rem;
+  margin: 20px 0;
+  color: var(--highlight);
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.timer-buttons { display: flex; justify-content: center; gap: 12px; margin-bottom: 20px; }
+.timer-buttons .btn {
+  padding: 10px 24px; border-radius: 12px; font-weight: 700;
+  border: none; cursor: pointer; color: white;
+  transition: transform 0.2s;
+}
+.timer-buttons .btn:active { transform: scale(0.95); }
+.btn-start { background-color: #2ecc71; }
+.btn-pause { background-color: #f1c40f; color: #333 !important; }
+.btn-reset { background-color: #e74c3c; }
+
+/* Progress Bar */
+.progress-bar-container {
+  width: 100%; height: 8px; border-radius: 20px;
+  background: var(--input-bg); overflow: hidden;
+}
+.progress-bar-fill {
+  height: 100%; width: 0%; background: var(--highlight);
+  transition: width 1s linear;
+}
+
+/* Quote Box */
+.quote-box {
+  font-style: italic;
+  background: linear-gradient(135deg, var(--accent-glow), #5faee3);
+  color: #fff; /* Always white text on blue bg */
+  padding: 15px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+button.new-quote {
+  background: #ff6b6b; color: white; border: none;
+  padding: 8px 20px; border-radius: 20px; font-weight: 700; cursor: pointer;
+}
+
+/* Footer */
+footer {
+  position: fixed; bottom: 0; left: 0; width: 100%;
+  background: var(--bg-container); color: var(--text-sub);
+  padding: 10px; font-size: 0.9rem;
+  border-top: 1px solid var(--input-border);
+}

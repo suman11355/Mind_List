@@ -1,0 +1,61 @@
+ <!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Goal-Quick</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <button class="theme-toggle" id="themeToggle" title="Toggle Light/Dark Mode">
+      ☀
+    </button>
+
+    <header>
+      <h1>Goal-Quick</h1>
+      <p class="subtitle">Stay focused, stay productive!</p>
+      <p class="datetime" id="liveDateTime">Loading...</p>
+    </header>
+
+    <section class="container">
+      <h2>To-Do List</h2>
+      <input id="todoInput" type="text" placeholder="Add a new task..." />
+      <button class="add-task" type="button">+ Add Task</button>
+      <ul id="todoList"></ul>
+    </section>
+
+    <section class="container">
+      <h2>Pomodoro Timer</h2>
+      <div class="timer-inputs">
+        <div><label>Hrs</label><br><input type="number" id="hours" min="0" value="0"></div>
+        <div><label>Min</label><br><input type="number" id="minutes" min="0" value="25"></div>
+        <div><label>Sec</label><br><input type="number" id="seconds" min="0" value="0"></div>
+      </div>
+      <div class="timer-display" id="timerDisplay">00:25:00</div>
+      <div class="timer-buttons">
+        <button class="btn btn-start">▶ Start</button>
+        <button class="btn btn-pause">⏸ Pause</button>
+        <button class="btn btn-reset">↻ Reset</button>
+      </div>
+      <div class="progress-bar-container">
+        <div class="progress-bar-fill" id="progressBar"></div>
+      </div>
+    </section>
+
+    <section class="container">
+      <h2>Motivational Quote</h2>
+      <div class="quote-box" id="quoteBox">Every day is a new beginning.</div>
+      <button class="new-quote">❝ New Quote</button>
+    </section>
+
+    <section class="container">
+      <h2>Notes</h2>
+      <textarea class="notes-input" id="notesInput" rows="4" placeholder="Write your thoughts..."></textarea>
+    </section>
+
+    <footer>made by suman</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
